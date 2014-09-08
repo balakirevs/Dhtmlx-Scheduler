@@ -1,0 +1,19 @@
+<script>
+	$('.eventStartDate').datetimepicker({
+		format:'Y-m-d H:i'
+	});
+	$('.eventEndDate').datetimepicker({
+		format:'Y-m-d H:i'
+	});
+</script>
+
+<fieldset>
+  <%= f.label :text, "Event" %>
+  <%= f.text_field :text %><br>
+	<%= f.label :start_date %><br>
+	<%= f.text_field :start_date, class: "eventStartDate" %><br>
+	<%= f.label :end_date %><br>
+	<%= f.text_field :end_date, class: "eventEndDate" %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>

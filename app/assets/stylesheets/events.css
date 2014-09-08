@@ -1,0 +1,21 @@
+.dhx_scheduler_month .dhx_marked_timespan.dhx_now_time{
+	display: none;
+}
+
+.dhx_scheduler_month .dhx_marked_timespan{
+	display: block;
+}
+
+.grey_section{
+	background-color:#969394;
+
+}
+
+.green_section{
+	background-color:#12E316;
+
+}
+
+.dhx_cal_event_clear, .dhx_cal_event_line{
+	z-index: 1;
+}

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @team.label %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @team.open %>
+</p>
+
+<ol class="users">
+<% @team.users.each do |user| %>
+  <li>
+    <%= user.label %>
+    <ol class="events">
+      <% user.events.each do |event| %>
+        <li><%= event.text %></li>
+        <%= event.start_date %>
+        <%= event.end_date %>
+      <% end %>
+    </ol>
+  </li>
+<% end %>
+</ol>
+
+<%= link_to 'Destroy', team_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
+<%#= link_to 'New User', new_team_user_path(@team) %>

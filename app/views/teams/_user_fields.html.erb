@@ -1,0 +1,10 @@
+<fieldset>
+  <%= f.label :label, "User" %><br />
+  <%= f.text_area :label %><br />
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove User" %>
+  <%= f.fields_for :events do |builder| %>
+    <%= render 'event_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Event", f, :events %>
+</fieldset>

@@ -1,0 +1,10 @@
+<h1>Listing teams</h1>
+
+<% @teams.each do |team| %>
+  <div class="user">
+    <h2><%= link_to team.label, team %></h2>
+    <%= pluralize(team.users.size, "User") %>
+  </div>
+<% end %>
+
+<%= link_to 'New Team', new_team_path %>
