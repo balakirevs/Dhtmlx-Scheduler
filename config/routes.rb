@@ -1,11 +1,18 @@
 DhtmlxScheduler::Application.routes.draw do
+  resources :groups
   resources :teams do
-    resources :users
+    resources :users do
+      resources :works
+    end
   end
 
   root to: 'events#schedule'
 
   resources :users
+
+  resources :works
+  resources :ams, controller: 'works', type: 'Am'
+  resources :pms, controller: 'works', type: 'Pm'
 
   resources :events
 

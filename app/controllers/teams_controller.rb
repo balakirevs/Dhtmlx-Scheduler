@@ -80,6 +80,7 @@ class TeamsController < ApplicationController
     def team_params
       params.require(:team).permit(:label, :open, 
                                     users_attributes: [:id, :team_id, :label, :_destroy,
-                                    events_attributes:[:id, :text, :user_id, :start_date, :end_date, :_destroy]])
+                                    works_attributes: [:id, :user_id, :label, :period, :_destroy,
+                                    events_attributes:[:id, :text, :user_id, :work_id, :start_date, :end_date, :_destroy]]])
     end
 end

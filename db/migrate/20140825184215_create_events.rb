@@ -1,10 +1,11 @@
 class CreateEvents < ActiveRecord::Migration
   def change
-    create_table :events do |t|
+    create_table :events, force: true do |t|
       t.text :text
       t.datetime :start_date
       t.datetime :end_date
       t.integer :user_id
+      t.integer :work_id
 
       t.timestamps
     end

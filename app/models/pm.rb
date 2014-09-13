@@ -1,0 +1,2 @@
+class Pm < Work
+end

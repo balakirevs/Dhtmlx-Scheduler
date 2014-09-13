@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.9'
+gem 'rails', '4.0.10'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -35,6 +35,9 @@ end
 
 gem 'rabl'
 gem 'oj'
+#gem "cocoon"
+#gem 'simple_form'
+#gem 'gon'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

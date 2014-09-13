@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     @event = Event.new
     @users = User.all
     @teams = Team.all
-    #0@users = @team.users
   end
 
   def save
@@ -26,6 +25,7 @@ class EventsController < ApplicationController
     @start_date = params[:start_date].to_time().strftime("%Y-%m-%d %H:%i")
     @end_date = params[:end_date].to_time().strftime("%Y-%m-%d %H:%i")
     @user_id = params[:unit_id]
+    @work_id = params[:section_id]
     @mode = params["!nativeeditor_status"]
 
     if @mode == "inserted"
@@ -33,7 +33,8 @@ class EventsController < ApplicationController
       @event.text = @text      
       @event.start_date = @start_date
       @event.end_date = @end_date
-      @event.user_id = @user_id      
+      @event.user_id = @user_id
+      @event.work_id = @work_id      
       @event.save!           
       @tid = @event.id
     elsif @mode == "deleted"
@@ -44,7 +45,8 @@ class EventsController < ApplicationController
       @event.text = @text      
       @event.start_date = @start_date
       @event.end_date = @end_date
-      @event.user_id = @user_id      
+      @event.user_id = @user_id
+      @event.work_id = @work_id      
       @event.save!     
     end
     request.format = "xml"
@@ -75,6 +77,7 @@ class EventsController < ApplicationController
     
     @event = Event.new(event_params)
     @event.user_id = user_id
+    @event.work_id = @work_id
 
     respond_to do |format|
       if @event.save

@@ -1,0 +1,31 @@
+<%= form_for(@work) do |f| %>
+  <% if @work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@work.errors.count, "error") %> prohibited this fu from being saved:</h2>
+
+      <ul>
+      <% @work.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.select :period, Work.periods.map {|p| [p.humanize, p.camelcase]}, {}, disabled: @period != "Work" %> 
+
+    <% if @period != "Work" %>
+      <%= f.hidden_field :period, value: @period %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

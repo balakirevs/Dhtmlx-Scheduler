@@ -1,0 +1,13 @@
+<fieldset>
+  <%= f.text_field :label %>
+  <%= f.label :period %>
+  <%= f.select(:period, Work.periods, {class: "Work"}) %>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %><br />
+
+  <%= f.fields_for :events do |builder| %>
+    <%= render 'event_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Event", f, :events %>
+</fieldset>

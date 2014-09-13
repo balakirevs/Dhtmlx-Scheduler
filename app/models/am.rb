@@ -1,0 +1,2 @@
+class Am < Work 
+end
