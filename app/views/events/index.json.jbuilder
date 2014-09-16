@@ -4,8 +4,8 @@ json.data do
 	  json.text event.text
 	  json.start_date event.start_date.strftime('%Y-%m-%d %H:%M')
 	  json.end_date event.end_date.strftime('%Y-%m-%d %H:%M')
-	  json.user_id event.user_id 
-	  json.unit_id event.user_id
+	  json.unit_id event.work.user_id 
+	  #json.unit_id event.user_id
 	  json.section_id event.work_id 
 	end
 end

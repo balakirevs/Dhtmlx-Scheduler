@@ -11,38 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910181847) do
+ActiveRecord::Schema.define(version: 20140916094525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "events", force: true do |t|
+  create_table "events", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.text     "text"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "user_id"
-    t.integer  "work_id"
+    t.uuid     "work_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
+  create_table "teams", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "label"
     t.boolean  "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "label"
-    t.integer  "team_id"
+    t.uuid     "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "works", force: true do |t|
+  create_table "works", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "label"
-    t.integer  "user_id"
+    t.uuid     "user_id"
     t.string   "period"
     t.datetime "created_at"
     t.datetime "updated_at"

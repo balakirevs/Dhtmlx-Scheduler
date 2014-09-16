@@ -8,8 +8,8 @@ jQuery(document).ready(function($) {
       users.push(user);
     });
     
-    teams = scheduler.serverList("teams");
-    groups = scheduler.serverList("groups");
+    var teams = scheduler.serverList("teams");
+    var groups = scheduler.serverList("groups");
 
     scheduler.locale.labels.timeline_tab = "Timeline";
     scheduler.locale.labels.timeline2_tab = "Timeline 2";
