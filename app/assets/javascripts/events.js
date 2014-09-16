@@ -1,13 +1,7 @@
 jQuery(document).ready(function($) {
   function init() {
-    var users = [];
-    $('#event_user_id > option').each(function(){
-      var user = {};
-      user.key = this.value;
-      user.label = this.text;
-      users.push(user);
-    });
-    
+        
+    var users = scheduler.serverList("users");
     var teams = scheduler.serverList("teams");
     var groups = scheduler.serverList("groups");
 
@@ -87,6 +81,11 @@ jQuery(document).ready(function($) {
     dhtmlxAjax.get("/groups.json", function(resp){
       var groups = JSON.parse(resp.xmlDoc.responseText);
       scheduler.updateCollection("groups", groups);
+    });
+
+    dhtmlxAjax.get("/users.json", function(resp){
+      var users = JSON.parse(resp.xmlDoc.responseText);
+      scheduler.updateCollection("users", users);
     });
 
     scheduler.init('scheduler_here', new Date(), "unit");
