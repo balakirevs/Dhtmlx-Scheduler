@@ -8,12 +8,31 @@ jQuery(document).ready(function($) {
     scheduler.locale.labels.timeline_tab = "Timeline";
     scheduler.locale.labels.timeline2_tab = "Timeline 2";
     scheduler.locale.labels.unit_tab = "Unit";
+    scheduler.locale.labels.section_selectme = "Events";
     scheduler.config.multisection = true;
     scheduler.config.details_on_create = true;
     scheduler.config.details_on_dblclick = true;
     scheduler.config.xml_date = "%Y-%m-%d %H:%i";
     scheduler.config.multi_day = true;
 
+    scheduler.templates.event_class=function(start, end, event){
+      var css = "";
+      if(event.text)
+        css += "event_"+event.text;
+      if(event.id == scheduler.getState().select_id){
+        css += " selected";
+      }
+      return css;
+    };
+    
+    var events = [
+      { key: 1, label: 'O' },
+      { key: 2, label: 'C' },
+      { key: 3, label: 'R' },
+      { key: 4, label: 'S' },
+      { key: 5, label: 'V' }
+    ];
+    
     scheduler.createTimelineView({
       name:  'timeline',
       section_autoheight: false,
@@ -68,6 +87,7 @@ jQuery(document).ready(function($) {
     scheduler.config.lightbox.sections = [
       {name:"description", height:50, map_to:"text", type:"textarea", focus:true},
       {name:"Team Members", height:23, type:"select", options:users, map_to:"unit_id" },
+      { name:"selectme", height: 58, options: events, map_to:"radiobutton_option", type:"radio" },
       {name:"time", height:72, type:"calendar_time", map_to:"auto" }
     ];
 

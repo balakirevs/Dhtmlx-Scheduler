@@ -34,7 +34,7 @@ class EventsController < ApplicationController
       @event.text = @text      
       @event.start_date = @start_date
       @event.end_date = @end_date
-      @event.user_id = @user_id
+      #@event.user_id = @user_id
       @event.work_id = @work_id      
       @event.save!           
       @tid = @event.id
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
       @event.text = @text      
       @event.start_date = @start_date
       @event.end_date = @end_date
-      @event.user_id = @user_id
+      #@event.user_id = @user_id
       @event.work_id = @work_id      
       @event.save!     
     end

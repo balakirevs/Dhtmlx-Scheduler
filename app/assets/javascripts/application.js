@@ -17,6 +17,7 @@
 //= require dhtmlxscheduler_treetimeline
 //= require dhtmlxscheduler_minical
 //= require dhtmlxscheduler_units
+//= require dhtmlxscheduler_editors
 //= require turbolinks
 //= require jquery
 //= require jquery-ui

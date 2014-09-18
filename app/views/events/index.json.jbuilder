@@ -6,6 +6,6 @@ json.data do
 	  json.end_date event.end_date.strftime('%Y-%m-%d %H:%M')
 	  json.unit_id event.work.user_id 
 	  json.user_id event.work.user_id
-	  json.section_id event.work_id 
+	  json.section_id event.work_id
 	end
 end
