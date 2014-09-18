@@ -17,9 +17,9 @@
 //= require dhtmlxscheduler_treetimeline
 //= require dhtmlxscheduler_minical
 //= require dhtmlxscheduler_units
+//= require turbolinks
 //= require jquery
-//= require jquery.ui.datepicker
+//= require jquery-ui
 //= require jquery.datetimepicker
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .

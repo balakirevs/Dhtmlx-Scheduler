@@ -1,4 +1,6 @@
 class GroupsController < TeamsController
+	before_action :authenticate_user!
+	
   def index
     @groups = Team.all
     respond_to do |format|      

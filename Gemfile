@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'jquery-ui-rails'#, '~> 4.2.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -35,9 +35,11 @@ end
 
 gem 'rabl'
 gem 'oj'
-#gem "cocoon"
-#gem 'simple_form'
-#gem 'gon'
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
+gem 'active_skin'
+gem 'cancan'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-    #@users = @team.users.all
     respond_to do |format|      
       format.html
       format.xml  { render :layout => false}

@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
 	before_action :set_work, only: [:show, :edit, :update, :destroy]
   before_action :set_period
+  before_action :authenticate_user!
 
   def index
     @works = period_class.all
