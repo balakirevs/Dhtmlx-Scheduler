@@ -1,13 +1,14 @@
 ActiveAdmin.register Team do
 
-  permit_params :label, :open, :user
+  permit_params :label, :open, :user_id
 
   index do
     column :label
     column :open
-    column :users, User.all do |u| [u.id]  end
     actions
   end
+
+  filter :users, as:  :select, collection: proc { User.all.map {|user| [user.label, user.id] } }
 
   form do |f|
     f.inputs "Team Details" do
@@ -20,7 +21,7 @@ ActiveAdmin.register Team do
       user.input :email
       user.input :password
       user.input :password_confirmation
-      user.input :role, as: :radio, collection: {Manager: "Manager", TeamLeader: "Team Leader", Reviewer: "Reviewer", Editor: "Editor", Administrator: "Administrator"}
+      user.input :role, as: :radio, collection: {manager: "Manager", teamleader: "Team Leader", reviewer: "Reviewer", editor: "Editor", administrator: "Administrator"}
     end
 
     f.actions

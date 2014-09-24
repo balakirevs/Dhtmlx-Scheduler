@@ -1,28 +1,28 @@
-.dhx_scheduler_month .dhx_marked_timespan.dhx_now_time{
+.dhx_scheduler_month .dhx_marked_timespan.dhx_now_time {
 	display: none;
 }
 
-.dhx_scheduler_month .dhx_marked_timespan{
+.dhx_scheduler_month .dhx_marked_timespan {
 	display: block;
 }
 
-.grey_section{
+.grey_section {
 	background-color:#63E16D;
 }
 
-.green_section{
+.green_section {
 	background-color:#12E316;
 }
 
-.dhx_cal_event_clear, .dhx_cal_event_line{
+.dhx_cal_event_clear, .dhx_cal_event_line {
 	z-index: 1;
 }
 
-.dhx_data_table.folder .dhx_matrix_cell{
+.dhx_data_table.folder .dhx_matrix_cell {
   background-color:#63E16D;
 }
 
-.dhx_matrix_scell.folder{
+.dhx_matrix_scell.folder {
 	background-color:#FBFF54;
 }
 
@@ -34,60 +34,68 @@
 .dhx_cal_event.event_sickness div.dhx_footer,
 .dhx_cal_event.event_vacation div.dhx_footer,
 .dhx_cal_event.event_out_of_office div.dhx_footer,
-.dhx_cal_event.event_seminars div.dhx_footer{
+.dhx_cal_event.event_seminars div.dhx_footer {
 	background-color: transparent !important;
 }
-.dhx_cal_event .dhx_body{
+
+.dhx_cal_event .dhx_body {
 	-webkit-transition: opacity 0.1s;
 	transition: opacity 0.1s;
 	opacity: 0.7;
 }
-.dhx_cal_event .dhx_title{
+
+.dhx_cal_event .dhx_title {
 	line-height: 12px;
 }
+
 .dhx_cal_event_line:hover,
 .dhx_cal_event:hover .dhx_body,
 .dhx_cal_event.selected .dhx_body,
-.dhx_cal_event.dhx_cal_select_menu .dhx_body{
+.dhx_cal_event.dhx_cal_select_menu .dhx_body {
 	opacity: 1;
 }
 
-.dhx_cal_event.event_O div, .dhx_cal_event_line.event_O{
+.dhx_cal_event.event_O div, .dhx_cal_event_line.event_O {
 	background-color: orange !important;
 	border-color: #a36800 !important;
 }
-.dhx_cal_event_clear.event_O{
+
+.dhx_cal_event_clear.event_O {
 	color:orange !important;
 }
 
-.dhx_cal_event.event_C div, .dhx_cal_event_line.event_C{
+.dhx_cal_event.event_C div, .dhx_cal_event_line.event_C {
 	background-color: #36BD14 !important;
 	border-color: #698490 !important;
 }
-.dhx_cal_event_clear.event_C{
+
+.dhx_cal_event_clear.event_C {
 	color: #36BD14 !important;
 }
 
-.dhx_cal_event.event_R div, .dhx_cal_event_line.event_R{
+.dhx_cal_event.event_R div, .dhx_cal_event_line.event_R {
 	background-color: #FC5BD5 !important;
 	border-color: #839595 !important;
 }
-.dhx_cal_event_clear.event_R{
+
+.dhx_cal_event_clear.event_R {
 	color: #B82594 !important;
 }
 
-.dhx_cal_event.event_S div, .dhx_cal_event_line.event_S{
+.dhx_cal_event.event_S div, .dhx_cal_event_line.event_S {
 	background-color: #835E54 !important;
 	border-color: #835E54 !important;
 }
-.dhx_cal_event_clear.event_S{
+
+.dhx_cal_event_clear.event_S {
 	color: #835E54 !important;
 }
 
-.dhx_cal_event.event_V div, .dhx_cal_event_line.event_V{
+.dhx_cal_event.event_V div, .dhx_cal_event_line.event_V {
 	background-color: #FF4A1B !important;
 	border-color: #FF4A1B !important;
 }
-.dhx_cal_event_clear.event_V{
+
+.dhx_cal_event_clear.event_V {
 	color: #FF4A1B !important;
 }

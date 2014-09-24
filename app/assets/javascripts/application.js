@@ -18,9 +18,12 @@
 //= require dhtmlxscheduler_minical
 //= require dhtmlxscheduler_units
 //= require dhtmlxscheduler_editors
+//= require dhtmlxscheduler_quick_info
+//= require dhtmlxscheduler_tooltip
 //= require turbolinks
 //= require jquery
 //= require jquery-ui
 //= require jquery.datetimepicker
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .

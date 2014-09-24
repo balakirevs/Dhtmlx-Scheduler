@@ -11,9 +11,8 @@ ActiveAdmin.register User do
       actions
     end
  
-    filter :email
-    filter :events
-    filter :team
+    filter :events, as:  :select, collection: proc { Event.all.map {|event| [event.text, event.id] } }
+    filter :team, as:  :select, collection: proc { Team.all.map {|team| [team.label, team.id] } }
  
     form do |f|
       f.inputs "User Details" do

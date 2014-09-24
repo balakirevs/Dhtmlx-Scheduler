@@ -1,9 +1,29 @@
-<% if signed_in? %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% if can? :update, @user %>
-    | <%= link_to "Admin", admin_root_path %>
-  <% end %>  
-<% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-<% end %>
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div id="container">
+	  <div id="user_nav">
+	  	<nav>
+        <ul class="nav nav-tabs" role="tablist">
+			    <% if user_signed_in? %>
+			      <% if can? :update, @user %>
+			        <li><%= link_to "Admin Panel", admin_root_path %></li>
+			      <% end %>
+		        <li><%= link_to "Users", users_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </li>   
+			    <% end %>
+			  </ul>
+			</nav>    
+	  </div>
+	</div>
+</header>  

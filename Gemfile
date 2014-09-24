@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby   '2.1.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.10'
 
@@ -39,6 +41,8 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
 gem 'cancan'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

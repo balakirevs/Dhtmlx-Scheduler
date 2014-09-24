@@ -4,16 +4,22 @@ jQuery(document).ready(function($) {
     var users = scheduler.serverList("users");
     var teams = scheduler.serverList("teams");
     var groups = scheduler.serverList("groups");
+    var mates = scheduler.serverList("mates");
+    var members = scheduler.serverList("members");
 
     scheduler.locale.labels.timeline_tab = "Timeline";
     scheduler.locale.labels.timeline2_tab = "Timeline 2";
+    scheduler.locale.labels.team_tab = "Team";
+    scheduler.locale.labels.group_tab = "Group";
     scheduler.locale.labels.unit_tab = "Unit";
     scheduler.locale.labels.section_selectme = "Events";
     scheduler.config.multisection = true;
     scheduler.config.details_on_create = true;
     scheduler.config.details_on_dblclick = true;
+    scheduler.templates.tooltip_date_format = scheduler.date.date_to_str("%Y-%m-%d %H:%i");
     scheduler.config.xml_date = "%Y-%m-%d %H:%i";
     scheduler.config.multi_day = true;
+    //scheduler.config.quick_info_detached = true;
 
     scheduler.templates.event_class=function(start, end, event){
       var css = "";
@@ -32,6 +38,48 @@ jQuery(document).ready(function($) {
       { key: 4, label: 'S' },
       { key: 5, label: 'V' }
     ];
+
+    scheduler.createTimelineView({
+      name:  'group',
+      section_autoheight: false,
+      x_unit: 'hour',
+      x_date: '%A',
+      x_step: 12,
+      x_size: 62,
+      x_length: 62,
+      folder_dy:20,
+      dy:30,
+      dx: 150,
+      y_unit: members,
+      y_property: 'unit_id',
+      render: 'tree',
+      round_position: true,
+      second_scale: {
+        x_unit: 'day',
+        x_date: "%j",
+        x_step:  1,
+        x_size: 62,
+        x_start: 0,
+        x_length: 62
+      }
+    });
+
+    scheduler.createTimelineView({
+      name: 'team',
+      section_autoheight: false,
+      x_unit: 'day',
+      x_date: "%j",
+      //x_step: 12, // 12 - 2columns(AM/PM); 8 - 3 columns
+      x_size: 31,
+      x_length: 31,
+      folder_dy:20,
+      dy:30,
+      dx: 150,
+      y_unit: mates,
+      y_property: 'section_id',
+      render: 'tree',
+      round_position: true
+    });
     
     scheduler.createTimelineView({
       name:  'timeline',
@@ -103,12 +151,22 @@ jQuery(document).ready(function($) {
       scheduler.updateCollection("groups", groups);
     });
 
+    dhtmlxAjax.get("/mates.json", function(resp){
+      var mates = JSON.parse(resp.xmlDoc.responseText);
+      scheduler.updateCollection("mates", mates);
+    });
+
+    dhtmlxAjax.get("/members.json", function(resp){
+      var members = JSON.parse(resp.xmlDoc.responseText);
+      scheduler.updateCollection("members", members);
+    });
+
     dhtmlxAjax.get("/users.json", function(resp){
       var users = JSON.parse(resp.xmlDoc.responseText);
       scheduler.updateCollection("users", users);
     });
 
-    scheduler.init('scheduler_here', new Date(), "unit");
+    scheduler.init('scheduler_here', new Date(), "month");
     scheduler.load("/events.json", 'json');
     var dp = new dataProcessor("/events/save");
       dp.init(scheduler);

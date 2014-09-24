@@ -9,4 +9,13 @@ class GroupsController < TeamsController
       format.json 
     end
   end
+
+  def show
+    @group = Group.find(params[:id])
+    respond_to do |format|      
+      format.html
+      format.xml  { render :layout => false} 
+      format.json 
+    end
+  end
 end

@@ -1,9 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<%= @user.team.label %>
+
 <p>
-  <strong>Label:</strong>
+  <b>Label:</b>
   <%= @user.label %>
 </p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>Role:</b>
+  <%= @user.role %>
+</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="form-actions">
+	<%= link_to 'Edit', edit_user_path(@user), class: 'btn' %>
+	<%= link_to 'Back', users_path, class: 'btn' %>
+</div>
+
+<%= render 'shared/current_calendar' %>

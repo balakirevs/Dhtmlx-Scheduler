@@ -1,11 +1,12 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [ :show, :edit, :update, :destroy ]
+  before_action :identify_team, :identify_group
   before_action :authenticate_user!
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.all      
     respond_to do |format|      
       format.html
       format.xml  { render :layout => false} 
@@ -16,7 +17,12 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @team = Team.find(params[:id])
+    @team = current_user.team
+    respond_to do |format|      
+      format.html
+      format.xml  { render :layout => false} 
+      format.json 
+    end
   end
 
   # GET /teams/new
@@ -76,6 +82,14 @@ class TeamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
+    end
+
+    def identify_team
+      @team = current_user.team(params[:id])
+    end
+
+    def identify_group
+      @group = current_user.team
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,4 +1,4 @@
-collection @teams
+object @team
 
 attributes :id, :label, :open
 

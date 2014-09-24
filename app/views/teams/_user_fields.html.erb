@@ -1,21 +1,11 @@
 <fieldset>
-  <%= f.label :label, "User" %><br />
   <%= f.text_area :label %><br />
-
-  <%= f.label :email %><br />
 	<%= f.text_field :email %><br />
-
-	<%= f.label :password %><br />
 	<%= f.password_field :password %><br />
-
-	<%= f.label :password_confirmation, "Confirm Password" %><br />
   <%= f.password_field :password_confirmation %><br />
-
-  <%= f.label :role %><br />
-  <%= f.select :role, options_for_select(["Manager", "Team Leader", "Reviewer", "Editor", "Administrator"], :selected => f.object.role) %><br />
-
+  <%= f.select :role, options_for_select(["manager", "teamleader", "reviewer", "editor", "administrator"], :selected => f.object.role) %><br />
   <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove User" %>
+  <%= f.label :_destroy, "Remove User", class: "btn btn-danger btn-xs" %>
 
   <%= f.fields_for :works, f do |builder| %>
     <%= render 'work_fields', f: builder %>   
