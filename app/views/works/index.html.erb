@@ -1,5 +1,5 @@
 <h1>The User Periods</h1>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>label</th>
@@ -13,14 +13,14 @@
       <tr>
         <td><%= work.label %></td>
         <td><%= work.period %></td>
-        <td><%= link_to 'Show', sti_work_path(work.period, work) %></td>
-        <td><%= link_to 'Edit', sti_work_path(work.period, work, :edit) %></td>
-        <td><%= link_to 'Destroy', sti_work_path(work.period, work), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', sti_work_path(work.period, work), class: 'btn btn-mini' %></td>
+        <td><%= link_to 'Edit', sti_work_path(work.period, work, :edit), class: 'btn btn-mini' %></td>
+        <td><%= link_to 'Destroy', sti_work_path(work.period, work), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %></td>
         <td><%= link_to "See all #{work.period.pluralize}", sti_work_path(work.period) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "New #{@period}", sti_work_path(@period, nil, :new) %>
+<%= link_to "New #{@period}", sti_work_path(@period, nil, :new), class: 'btn btn-primary' %>
 <%= link_to 'See all work periods', sti_work_path %>

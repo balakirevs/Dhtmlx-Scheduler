@@ -20,10 +20,12 @@
 //= require dhtmlxscheduler_editors
 //= require dhtmlxscheduler_quick_info
 //= require dhtmlxscheduler_tooltip
+//= require dhtmlxscheduler_active_links
 //= require turbolinks
 //= require jquery
 //= require jquery-ui
 //= require jquery.datetimepicker
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require_tree .

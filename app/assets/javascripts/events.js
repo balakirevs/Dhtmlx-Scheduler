@@ -36,7 +36,8 @@ jQuery(document).ready(function($) {
       { key: 2, label: 'C' },
       { key: 3, label: 'R' },
       { key: 4, label: 'S' },
-      { key: 5, label: 'V' }
+      { key: 5, label: 'V' },
+      { key: 6, label: 'Holiday' }
     ];
 
     scheduler.createTimelineView({
@@ -132,14 +133,22 @@ jQuery(document).ready(function($) {
       type:"dhx_time_block"
     };
 
+    scheduler.addMarkedTimespan(config);
+    
+    scheduler.attachEvent("onEventLoading", function(ev){
+      if (ev.start_date.getHours() >= 12)
+        ev.work_id = "Am";
+      else
+        ev.work_id = "Pm";
+      return true;
+    });
+
     scheduler.config.lightbox.sections = [
       {name:"description", height:50, map_to:"text", type:"textarea", focus:true},
       {name:"Team Members", height:23, type:"select", options:users, map_to:"unit_id" },
       { name:"selectme", height: 58, options: events, map_to:"radiobutton_option", type:"radio" },
       {name:"time", height:72, type:"calendar_time", map_to:"auto" }
     ];
-
-    scheduler.addMarkedTimespan(config);
 
     dhtmlxAjax.get("/teams.json", function(resp){
       var teams = JSON.parse(resp.xmlDoc.responseText);
@@ -171,6 +180,10 @@ jQuery(document).ready(function($) {
     var dp = new dataProcessor("/events/save");
       dp.init(scheduler);
       dp.setTransactionMode("POST",false);
+
+    for(var i = 0; i < holidays.length; i++){
+      scheduler.blockTime(new Date(holidays[i].date), "fullday");
+    }
   }
 
   init();

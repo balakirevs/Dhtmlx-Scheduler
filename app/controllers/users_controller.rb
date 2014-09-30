@@ -16,12 +16,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @holidays = Holiday.all
     @user = User.find(params[:id])
   end
 
   # GET /users/new
   def new
-    #@user = @team.users.build
     @user = User.new
   end
 

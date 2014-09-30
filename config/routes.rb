@@ -1,4 +1,5 @@
 DhtmlxScheduler::Application.routes.draw do
+  resources :holidays  
   constraints(id: /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i) do
     devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
     ActiveAdmin.routes(self)

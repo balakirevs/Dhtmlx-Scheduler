@@ -1,0 +1,25 @@
+<%= bootstrap_form_for(@holiday) do |f| %>
+  <% if @holiday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@holiday.errors.count, "error") %> prohibited this holiday from being saved:</h2>
+
+      <ul>
+      <% @holiday.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <script>
+  $('.holidayDate').datetimepicker({
+    timepicker:false,
+    format:'d.m.Y'
+  });
+</script>         
+  <%= f.text_field :name,  class: 'form-control', placeholder: "New holiday name" %>
+  <%= f.text_field :date, value: date_to_dd_MMM_yyyy(f.object.date), class: 'holidayDate', readonly: "readonly" %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

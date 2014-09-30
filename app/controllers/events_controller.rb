@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @users = User.all
     @teams = Team.all
+    @holidays = Holiday.all
   end
 
   def save

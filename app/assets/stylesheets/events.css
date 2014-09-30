@@ -92,10 +92,31 @@
 }
 
 .dhx_cal_event.event_V div, .dhx_cal_event_line.event_V {
-	background-color: #FF4A1B !important;
-	border-color: #FF4A1B !important;
+	background-color: #39FFE0 !important;
+	border-color: #39FFE0 !important;
 }
 
 .dhx_cal_event_clear.event_V {
-	color: #FF4A1B !important;
+	color: #39FFE0 !important;
+}
+
+.dhx_cal_event.event_Holiday div, .dhx_cal_event_line.event_Holiday {
+	background-color: #FF4A1B !important;
+	border-color: #FF4A1B !important;
+	text-align: center;
+	/*font-size: 24px; */
+	opacity: 0.8;
+	color: #e2b8ac !important;
+}
+
+.dhx_cal_event_clear.event_Holiday {
+	background-color: #fadcd3 !important;
+}
+
+.holiday {
+  background-color: #fadcd3;
+	text-align: center;
+	/*font-size: 24px; */
+	opacity: 0.8;
+	color: #e2b8ac;
 }

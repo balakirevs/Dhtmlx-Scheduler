@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	belongs_to :team
 	has_many :events, through: :works
 	has_many :works
+	#has_many :holidays#, conditions: ["date >= '#{ DateTime.now.beginning_of_year.strftime('%Y-%m-%d')}'::date"], order: "DATE ASC"
 	delegate :pms, :ams, to: :works
 	accepts_nested_attributes_for :events, allow_destroy: true
 	accepts_nested_attributes_for :works, allow_destroy: true
