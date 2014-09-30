@@ -1,1 +1,1 @@
-DHTMLX Scheduler
+Scheduler
