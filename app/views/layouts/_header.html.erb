@@ -1,5 +1,6 @@
 <header class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div id="container">
+    <%= link_to image_tag("imgs/logo.png", id: "logo"), root_path, method: :get %>
 	  <div id="user_nav">
 	  	<nav>
         <ul class="nav nav-tabs" role="tablist">
@@ -13,7 +14,7 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Profile", current_user, method: :get %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>

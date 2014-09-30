@@ -145,3 +145,18 @@ textarea {
   margin-top: 3px;
 }
 
+#logo {
+  float: left;
+  margin-left: 60px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
